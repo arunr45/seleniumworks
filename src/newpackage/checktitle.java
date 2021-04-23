@@ -12,10 +12,11 @@ public class checktitle {
 	
     System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver.exe");
 	WebDriver driver=new ChromeDriver();
+	driver.get("https://www.google.com");
 	driver.get(baseUrl);
 	actualTitle=driver.getTitle();
 	driver.manage().window().maximize();
-	driver.manage().window().wait();
+	driver.navigate().back();
 	if(actualTitle.contentEquals(expectedTitle))
     
 	{
@@ -25,6 +26,6 @@ public class checktitle {
 	{
 	System.out.println("Not matching");
 	}
-	
+	driver.navigate().back();
 driver.close();
 }}
